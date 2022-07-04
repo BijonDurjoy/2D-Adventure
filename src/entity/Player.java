@@ -34,6 +34,8 @@ public class  Player extends Entity
     {
         worldX= gp.tileSize * 23;
         worldY= gp.tileSize * 21;
+//        worldX= gp.tileSize * 10;
+//        worldY= gp.tileSize * 13;
         speed= 4;
         direction = "down";
         //Player Status
@@ -91,6 +93,9 @@ public class  Player extends Entity
             int npcIndex = gp.cChecker.checkEntity(this, gp.npc);
             interactNpc(npcIndex);
 
+            //CHECK MONSTER COLLISION
+            int monsterIndex = gp.cChecker.checkEntity(this,gp.monster);
+            contactMonster(monsterIndex);
             //CHECK EVENT
             gp.eHandler.checkEvent();
             gp.keyH.enterPressed = false;
@@ -128,6 +133,16 @@ public class  Player extends Entity
             }
 
         }
+        //THIS NEEDS TO BE OUTSIDE OF KEY IF STATEMENT
+            if (invincible == true)
+            {
+                invincibleCounter++;
+                if(invincibleCounter > 60)
+                {
+                    invincible = false;
+                    invincibleCounter = 0;
+                }
+            }
     }
     public void pickUpObject(int i) {
         if(i != 999) {
@@ -143,7 +158,17 @@ public class  Player extends Entity
         }
 
     }
-
+    public void contactMonster(int i)
+    {
+        if(i != 999)
+        {
+            if (invincible == false)
+            {
+                life --;
+                invincible = true;
+            }
+        }
+    }
     public void draw(Graphics2D g2)
     {
         //g2.setColor(Color.white);
@@ -193,6 +218,18 @@ public class  Player extends Entity
               }
               break;
         }
+        if (invincible == true)
+        {
+            g2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER,0.3f));
+        }
         g2.drawImage(image,screenX,screenY,null);
+
+        //RESET ALPHA
+        g2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER,1f));
+
+        //DEBUG
+//        g2.setFont(new Font("Arial",Font.PLAIN,26));
+//        g2.setColor(Color.white);
+//        g2.drawString("Invincible:"+invincibleCounter,10,400);
     }
 }
