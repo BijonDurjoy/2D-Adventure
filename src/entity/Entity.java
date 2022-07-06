@@ -86,6 +86,7 @@ public class Entity
             if(gp.player.invincible == false)
             {
                 //WE CAN GIVE DAMAGE
+                gp.playSE(6);
                 gp.player.life --;
                 gp.player.invincible = true;
             }

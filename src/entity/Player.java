@@ -37,8 +37,7 @@ public class  Player extends Entity
     {
         worldX= gp.tileSize * 23;
         worldY= gp.tileSize * 21;
-//        worldX= gp.tileSize * 10;
-//        worldY= gp.tileSize * 13;
+
         speed= 4;
         direction = "down";
         //Player Status
@@ -116,7 +115,6 @@ public class  Player extends Entity
             contactMonster(monsterIndex);
             //CHECK EVENT
             gp.eHandler.checkEvent();
-
 
             if(collisionOn == false && keyH.enterPressed == false)
             {
@@ -215,15 +213,13 @@ public class  Player extends Entity
         }
     }
     public void interactNpc(int i){
-        if (gp.keyH.enterPressed == true)
-        {
-            if(i!=999)
-            {
+        if (gp.keyH.enterPressed == true) {
+            if(i!=999) {
                 gp.gameState = gp.dialogueState;
                 gp.npc[i].speak();
             }
-            else
-            {
+            else {
+                gp.playSE(7);
                 attacking = true;
             }
         }
@@ -231,10 +227,9 @@ public class  Player extends Entity
     }
     public void contactMonster(int i)
     {
-        if(i != 999)
-        {
-            if (invincible == false)
-            {
+        if(i != 999) {
+            if (invincible == false) {
+                gp.playSE(6);
                 life --;
                 invincible = true;
             }
@@ -243,6 +238,7 @@ public class  Player extends Entity
     public void damageMonster(int i){
         if(i!=999){
            if(gp.monster[i].invincible == false){
+               gp.playSE(5);
                gp.monster[i].life -= 1;
                gp.monster[i].invincible = true;
                if(gp.monster[i].life <=0){
