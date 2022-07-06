@@ -153,15 +153,15 @@ public class  Player extends Entity
 
         }
         //THIS NEEDS TO BE OUTSIDE OF KEY IF STATEMENT
-            if (invincible == true)
+        if (invincible == true)
+        {
+            invincibleCounter++;
+            if(invincibleCounter > 60)
             {
-                invincibleCounter++;
-                if(invincibleCounter > 60)
-                {
-                    invincible = false;
-                    invincibleCounter = 0;
-                }
+                invincible = false;
+                invincibleCounter = 0;
             }
+        }
     }
     public void attacking()
     {
@@ -242,10 +242,13 @@ public class  Player extends Entity
     }
     public void damageMonster(int i){
         if(i!=999){
-            System.out.println("Hit!");
-        }
-        else{
-            System.out.println("MISS!!!!");
+           if(gp.monster[i].invincible == false){
+               gp.monster[i].life -= 1;
+               gp.monster[i].invincible = true;
+               if(gp.monster[i].life <=0){
+                   gp.monster[i] = null;
+               }
+           }
         }
     }
 
