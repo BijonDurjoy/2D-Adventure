@@ -106,6 +106,12 @@ public class Entity
             {
                 //WE CAN GIVE DAMAGE
                 gp.playSE(6);
+
+                int damage = attack - gp.player.defense;
+                if(damage < 0){
+                    damage = 0;
+                }
+                gp.player.life -= damage;
                 gp.player.life --;
                 gp.player.invincible = true;
             }
