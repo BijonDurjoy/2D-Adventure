@@ -24,8 +24,7 @@ public class UI
     public int slotCol = 0;
     public int slotRow = 0;
 
-    public UI(GamePanel gp)
-    {
+    public UI(GamePanel gp) {
         this.gp = gp;
         arial_40 = new Font("Arial",Font.PLAIN,40);
         arial_80B = new Font("Arial",Font.BOLD,70);
@@ -308,6 +307,12 @@ public class UI
 
         //Draw Player's Item
         for(int i = 0;i<gp.player.inventory.size();i++){
+            //Equip Cursor
+            if(gp.player.inventory.get(i) == gp.player.currentWeapon || gp.player.inventory.get(i) == gp.player.currentShield){
+                g2.setColor(new Color(240,190,90));
+                g2.fillRoundRect(slotX,slotY,gp.tileSize,gp.tileSize,10,10);
+            }
+
             g2.drawImage(gp.player.inventory.get(i).down1,slotX,slotY,null);
             slotX += slotSize;
             if(i==4||i==9||i==14){
@@ -332,7 +337,6 @@ public class UI
         int dFrameY = frameY+frameHeight;
         int dFrameWidth = frameWidth;
         int dFrameHeight = gp.tileSize*3;
-        drawSubWindow(dFrameX,dFrameY,dFrameWidth,dFrameHeight);
 
         //Draw Description text
         int textX = dFrameX+20;
@@ -342,6 +346,7 @@ public class UI
         int itemIndex = getItemIndexOnSlot();
 
         if(itemIndex < gp.player.inventory.size()){
+            drawSubWindow(dFrameX,dFrameY,dFrameWidth,dFrameHeight);
             for(String line: gp.player.inventory.get(itemIndex).description.split("\n")){
                 g2.drawString(line,textX,textY);
                 textY+=32;
