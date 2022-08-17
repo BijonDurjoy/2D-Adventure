@@ -8,14 +8,37 @@ import tile_interactive.IT_DryTree;
 public class AssetSetter
 {
     GamePanel gp;
-    public AssetSetter(GamePanel gp)
-    {
+    public AssetSetter(GamePanel gp) {
         this.gp = gp;
     }
 
     public void setObject() {
         int i=0;
 
+        gp.obj[i] = new OBJ_Door(gp);
+        gp.obj[i].worldX = gp.tileSize*36;
+        gp.obj[i].worldY = gp.tileSize*30;
+        i++;
+        gp.obj[i] = new OBJ_Key(gp);
+        gp.obj[i].worldX = gp.tileSize*36;
+        gp.obj[i].worldY = gp.tileSize*31;
+        i++;
+        gp.obj[i] = new OBJ_Door(gp);
+        gp.obj[i].worldX = gp.tileSize*13;
+        gp.obj[i].worldY = gp.tileSize*25;
+        i++;
+        gp.obj[i] = new OBJ_Key(gp);
+        gp.obj[i].worldX = gp.tileSize*12;
+        gp.obj[i].worldY = gp.tileSize*25;
+        i++;
+        gp.obj[i] = new OBJ_Chest(gp);
+        gp.obj[i].worldX = gp.tileSize*10;
+        gp.obj[i].worldY = gp.tileSize*8;
+        i++;
+        gp.obj[i] = new OBJ_Door(gp);
+        gp.obj[i].worldX = gp.tileSize*10;
+        gp.obj[i].worldY = gp.tileSize*12;
+        i++;
         gp.obj[i] = new OBJ_Coin_Bronze(gp);
         gp.obj[i].worldX = gp.tileSize*25;
         gp.obj[i].worldY = gp.tileSize*23;
@@ -29,8 +52,8 @@ public class AssetSetter
         gp.obj[i].worldY = gp.tileSize*21;
         i++;
         gp.obj[i] = new OBJ_Axe(gp);
-        gp.obj[i].worldX = gp.tileSize*33;
-        gp.obj[i].worldY = gp.tileSize*21;
+        gp.obj[i].worldX = gp.tileSize*38;
+        gp.obj[i].worldY = gp.tileSize*8;
         i++;
         gp.obj[i] = new OBJ_Shield_Blue(gp);
         gp.obj[i].worldX = gp.tileSize*35;
@@ -60,6 +83,18 @@ public class AssetSetter
     {
         int i = 0;
         gp.monster[i] = new MON_GreenSlime(gp);
+        gp.monster[i].worldX = gp.tileSize*35;
+        gp.monster[i].worldY = gp.tileSize*10;
+        i++;
+        gp.monster[i] = new MON_GreenSlime(gp);
+        gp.monster[i].worldX = gp.tileSize*38;
+        gp.monster[i].worldY = gp.tileSize*12;
+        i++;
+        gp.monster[i] = new MON_GreenSlime(gp);
+        gp.monster[i].worldX = gp.tileSize*36;
+        gp.monster[i].worldY = gp.tileSize*18;
+        i++;
+        gp.monster[i] = new MON_GreenSlime(gp);
         gp.monster[i].worldX = gp.tileSize*23;
         gp.monster[i].worldY = gp.tileSize*36;
         i++;
@@ -79,6 +114,18 @@ public class AssetSetter
         gp.monster[i].worldX = gp.tileSize*38;
         gp.monster[i].worldY = gp.tileSize*42;
         i++;
+        gp.monster[i] = new MON_GreenSlime(gp);
+        gp.monster[i].worldX = gp.tileSize*14;
+        gp.monster[i].worldY = gp.tileSize*29;
+        i++;
+        gp.monster[i] = new MON_GreenSlime(gp);
+        gp.monster[i].worldX = gp.tileSize*14;
+        gp.monster[i].worldY = gp.tileSize*26;
+        i++;
+        gp.monster[i] = new MON_GreenSlime(gp);
+        gp.monster[i].worldX = gp.tileSize*12;
+        gp.monster[i].worldY = gp.tileSize*30;
+        i++;
     }
     public void setInteractiveTile(){
         int i = 0;
@@ -89,5 +136,8 @@ public class AssetSetter
         gp.iTile[i] = new IT_DryTree(gp,31,12); i++;
         gp.iTile[i] = new IT_DryTree(gp,32,12); i++;
         gp.iTile[i] = new IT_DryTree(gp,33,12); i++;
+        gp.iTile[i] = new IT_DryTree(gp,12,22); i++;
+        gp.iTile[i] = new IT_DryTree(gp,12,23); i++;
+        gp.iTile[i] = new IT_DryTree(gp,12,24); i++;
     }
 }

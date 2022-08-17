@@ -68,7 +68,6 @@ public class  Player extends Entity
         inventory.add(currentWeapon);
         inventory.add(currentShield);
         inventory.add(new OBJ_Key(gp));
-
     }
     public int getAttack() {
         attackArea = currentWeapon.attackArea;
@@ -229,7 +228,7 @@ public class  Player extends Entity
         {
             mana = maxMana;
         }
-        if(life < 0){
+        if(life <= 0){
             gp.gameState = gp.gameOverState;
         }
     }
@@ -302,7 +301,6 @@ public class  Player extends Entity
                 gp.ui.addMessage(text);
                 gp.obj[i] = null;
             }
-
         }
     }
     public void interactNpc(int i){

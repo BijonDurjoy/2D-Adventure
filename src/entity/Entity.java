@@ -20,7 +20,6 @@ public class Entity
     public boolean collision = false;
     String dialogues[] = new String[20];
 
-
     //STATE
     public int worldX,worldY;
     public String direction = "down";
