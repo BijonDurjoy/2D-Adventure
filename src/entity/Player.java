@@ -280,11 +280,19 @@ public class  Player extends Entity
     public void pickUpObject(int i) {
         if(i != 999) {
 
+
             //PICK ONLY ITEMS
             if(gp.obj[i].type == type_pickupOnly)
             {
                 gp.obj[i].use(this);
                 gp.obj[i] = null;
+            }
+            //FinishedS State
+            else if(gp.obj[i].name == "Chest"){
+                gp.ui.gameFinished = true;
+                gp.stopMusic();
+                gp.playSE(4);
+                gp.gameState = gp.gameFinishedState;
             }
             //INVENTORY ITEMS
             else
