@@ -10,6 +10,7 @@ These instructions will get you set up and running with the project locally.
 
 * Version Control: [Git](https://git-scm.com/)
 * Code Editor: [IntelliJ IDEA](https://www.jetbrains.com/idea/)
+* Language: [Java](https://www.java.com/en/)
 
 ### Installation
 
