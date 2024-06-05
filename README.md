@@ -25,7 +25,8 @@ git clone https://github.com/BijonDurjoy/2D-Adventure.git
 
 - **Movement**: Use the arrow keys to move left and right.
 - **Jump**: Press the space bar to jump.
-- **Attack**: Press the 'A' key to attack.
+- **Attack**: Press the 'Enter' key to attack with sword or axe.
+- **Fireball**: Press the 'F' key to attack with fireball.
 - **Pause**: Press the 'P' key to pause the game.
 
 Avoid obstacles and enemies while collecting power-ups and reaching the end of each level.
