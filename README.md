@@ -23,7 +23,7 @@ git clone https://github.com/BijonDurjoy/2D-Adventure.git
 
 ## How to Play
 
-- **Movement**: Use the arrow keys to move left and right.
+- **Movement**: Use the 'a' key for right shit, 'd' for left, 'w' for up and 's' for down.
 - **Jump**: Press the space bar to jump.
 - **Attack**: Press the 'Enter' key to attack with sword or axe.
 - **Fireball**: Press the 'F' key to attack with fireball.
